@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" debug="true">
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <property name="LOG_CHARSET" value="UTF-8" />
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%5p) [%8.8X{traceId}|%15.15thread|%40.40logger{39}|%5L] : %m%n%ex
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="RUN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/home/game/logs/backup/run.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %5p --- [%8.8X{traceId}|%15.15thread|%40.40logger{39}|%5L] : %m%n%ex
+            </pattern>
+        </encoder>
+    </appender>
+
+    <appender name="API" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/home/game/logs/backup/api.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="INTERFACE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/home/game/logs/backup/interface.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <charset>${LOG_CHARSET}</charset>
+            <pattern>%msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger level="INFO" name="api" additivity="false">
+        <appender-ref ref="API"/>
+    </logger>
+    <logger level="INFO" name="interface" additivity="false">
+        <appender-ref ref="INTERFACE"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="RUN"/>
+    </root>
+
+</configuration>

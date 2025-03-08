@@ -1,0 +1,24 @@
+server:
+  port: 20001
+
+
+spring:
+  profiles:
+    active: @spring.profile@
+
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+jetcache:
+  stat-interval-minutes: 15
+  area-in-cache-name: false
+  local:
+    default:
+      type: caffeine
+      key-convertor: jackson
+      limit: 100
+      expireAfterWriteInMillis: 100000

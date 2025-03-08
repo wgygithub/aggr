@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://yipay.cluster-cpuiq0ckiyf8.ap-southeast-1.rds.amazonaws.com:3306/admin_test?useUnicode=true&characterEncoding=UTF-8
+    username: admin_test
+    password: 830d38f2ff4a5efd878e14e447d73537
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 8
+
+
+logging:
+  level:
+    ai.yipay: debug
+    # 开启泄漏检测日志
+#    com.zaxxer.hikari: DEBUG
+
+scheduling:
+  enable: false
+
+tg-bot:
+  enable: false
+  username: YiPayAiLocalBot
+  token: 7619414081:AAFmNLzRqzKiE-mkYj64DCnovoaQ8XnqeD8
+
+yipay:
+  name: yipay-local
+  order-host:
+    in: http://127.0.0.1:10001
+    id: http://127.0.0.1:10001
+    th: http://127.0.0.1:10001
+    vn: http://127.0.0.1:10001
+    ph: http://127.0.0.1:10001
+
+r2:
+  token: H8KyQCYD0E6XSkRZdC_Xokb2n8OLvDiicjBgOXmS
+  accessKey: 367515c35d261a50215834674516ba5b
+  secretKey: 797b2187ba5657efb208eae078858de6414cae8565b9b64166dfb549f5fbdbe7
+  bucketName: yipay
+  region: APAC
+  endpoint: https://4fddfe2620410d43afcf3bbe5e310c77.r2.cloudflarestorage.com
+  downloadUrl: https://r2.yipay.ai
