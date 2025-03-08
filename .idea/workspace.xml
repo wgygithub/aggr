@@ -4,53 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="432b7c5c-feb1-4253-9d6d-b3cb560cf933" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/ApifoxUploaderProjectSetting.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/AdminServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/config/WebConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/controller/IndexController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/application-local.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/test/java/org/example/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-api-server/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-api-server/src/main/java/org/example/ApiServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-api-server/src/main/resources/application-local.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-api-server/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-api-server/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-api-server/src/test/java/org/example/TestMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/annotations/Idempotent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/annotations/RateLimit.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/aspect/IdempotentAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/aspect/RateLimitAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/config/Jackson2ObjectMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/config/UnirestConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/enums/ResultType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/AppException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/AuthException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/JacksonJsonException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/ParamException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/RateLimitException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/RemoteCallException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/RepeatCallException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/handler/AppExceptionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/filter/LogRequestFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/interceptor/UnirestLoggingInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/resp/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/IdUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/IpUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/JacksonUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/TraceUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="432b7c5c-feb1-4253-9d6d-b3cb560cf933" name="Changes" comment="初始化">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,6 +26,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "wgygithub"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/wgygithub/aggr.git",
+    "accountId": "d8d5bb6f-8c55-4a36-ac8d-1dc8efd29013"
+  }
+}]]></component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -122,7 +90,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "vcs.Git",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -248,6 +216,9 @@
     </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\admin\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="432b7c5c-feb1-4253-9d6d-b3cb560cf933" name="Changes" comment="" />
@@ -261,12 +232,25 @@
       <workItem from="1741236823821" duration="8639000" />
       <workItem from="1741325050079" duration="5667000" />
       <workItem from="1741410869050" duration="5737000" />
-      <workItem from="1741441421365" duration="8329000" />
+      <workItem from="1741441421365" duration="8778000" />
     </task>
+    <task id="LOCAL-00001" summary="初始化">
+      <option name="closed" value="true" />
+      <created>1741450888232</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1741450888232</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="初始化" />
+    <option name="LAST_COMMIT_MESSAGE" value="初始化" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
