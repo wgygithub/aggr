@@ -6,6 +6,7 @@ import kong.unirest.*;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.example.exceptions.RemoteCallException;
+import org.example.util.TraceUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -55,20 +56,22 @@ public class UnirestLoggingInterceptor implements Interceptor {
     private void success(HttpResponse<?> response, Config config) {
         HttpRequest<?> httpRequest = requestThreadLocal.get();
         ObjectMapper mapper = config.getObjectMapper();
-
+        String traceId = TraceUtil.getTraceId(null);
         String format = """
+                TraceId    : {}
                 TimeStamp  : {}
                 Url        : {}
                 StatusCode : {}
                 Headers    : {}
                 Params     : {}
                 Body       : {}
-                TimeCost   : {}
+                TimeCost   : {} ms
                 Response   : {}
                 ====================================================================================
                 """;
 
         apiLog.info(format,
+                traceId,
                 DateUtil.format(Date.from(httpRequest.getCreationTime()), "yyyy-MM-dd HH:mm:ss.SSS"),
                 httpRequest.getUrl(),
                 response.getStatus(),
@@ -82,20 +85,23 @@ public class UnirestLoggingInterceptor implements Interceptor {
     private void error(HttpResponse<?> response, Config config) {
         HttpRequest<?> httpRequest = requestThreadLocal.get();
         ObjectMapper mapper = config.getObjectMapper();
-
+        String traceId = TraceUtil.getTraceId(null);
         String format = """
+                TraceId    : {}
                 TimeStamp  : {}
                 Url        : {}
                 StatusCode : {}
                 Headers    : {}
                 Params     : {}
                 Body       : {}
-                TimeCost   : {}
+                TimeCost   : {} ms
+                Response   : {}
                 ====================================================================================
                 """;
 
-
+        String responseStr = writeValue(response.getBody(), mapper);
         apiLog.info(format,
+                traceId,
                 DateUtil.format(Date.from(httpRequest.getCreationTime()), "yyyy-MM-dd HH:mm:ss.SSS"),
                 httpRequest.getUrl(),
                 response.getStatus(), // 添加状态码
@@ -103,9 +109,9 @@ public class UnirestLoggingInterceptor implements Interceptor {
                 writeValue(UrlBuilder.of(httpRequest.getUrl(), StandardCharsets.UTF_8).getQuery().getQueryMap(), mapper),
                 writeValue(getBody(httpRequest), mapper), // 使用 getBody 方法获取请求体
                 httpRequest.getCreationTime().until(Instant.now(), ChronoUnit.MILLIS),
-                writeValue("", mapper));
+                responseStr);
 
-        throw new RemoteCallException("");
+        throw new RemoteCallException("call " + httpRequest.getUrl() + " error");
     }
 
     private Object getBody(HttpRequest<?> request) {
