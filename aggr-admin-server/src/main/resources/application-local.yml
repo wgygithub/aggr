@@ -1,12 +1,37 @@
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://yipay.cluster-cpuiq0ckiyf8.ap-southeast-1.rds.amazonaws.com:3306/admin_test?useUnicode=true&characterEncoding=UTF-8
-    username: admin_test
-    password: 830d38f2ff4a5efd878e14e447d73537
-    hikari:
-      minimum-idle: 1
-      maximum-pool-size: 8
+    master:
+      hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://120.76.53.44:3306/aggr?useUnicode=true&characterEncoding=UTF-8
+      username: aggr_test
+      password: 5i5gT2z1sACZiREpmno3
+      connection-timeout: 3000
+      maximum-pool-size: 4        # 提升最大连接数
+      minimum-idle: 1              # 降低最小空闲连接
+      max-lifetime: 840000         # 14分钟
+      idle-timeout: 300000         # 5分钟
+      keepalive-time: 45000        # 45秒保活
+      pool-name: masterHikariPool
+      connection-test-query: /* ping */ SELECT 1
+      initialization-fail-timeout: 1
+      leak-detection-threshold: 60000
+    slave:
+      hikari:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      jdbc-url: jdbc:mysql://120.76.53.44:3306/aggr?useUnicode=true&characterEncoding=UTF-8
+      username: aggr_test
+      password: 5i5gT2z1sACZiREpmno3
+      connection-timeout: 3000
+      maximum-pool-size: 4        # 提升最大连接数
+      minimum-idle: 1              # 降低最小空闲连接
+      max-lifetime: 840000         # 14分钟
+      idle-timeout: 300000         # 5分钟
+      keepalive-time: 45000        # 45秒保活
+      pool-name: slaveHikariPool
+      connection-test-query: /* ping */ SELECT 1
+      initialization-fail-timeout: 1
+      leak-detection-threshold: 60000
 
 
 logging:
