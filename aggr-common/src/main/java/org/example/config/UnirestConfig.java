@@ -13,6 +13,10 @@ public class UnirestConfig {
     private static final UnirestLoggingInterceptor loggingInterceptor = new UnirestLoggingInterceptor();
     private static final Jackson2ObjectMapper objectMapper = new Jackson2ObjectMapper();
 
+    static {
+        setDefaultConfig(Unirest.primaryInstance());
+    }
+
     private static void setDefaultConfig(UnirestInstance instance) {
         instance.config().connectTimeout(1000 * 10).setObjectMapper(objectMapper).interceptor(loggingInterceptor);
     }

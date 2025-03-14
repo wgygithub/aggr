@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" debug="true">
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <property name="LOG_CHARSET" value="UTF-8" />
+    <property name="LOG_CHARSET" value="UTF-8"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
@@ -12,9 +12,11 @@
     </appender>
 
     <appender name="RUN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/game/logs/run.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/home/game/logs/backup/run.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-            <maxHistory>30</maxHistory>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <charset>${LOG_CHARSET}</charset>
@@ -24,9 +26,11 @@
     </appender>
 
     <appender name="API" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/game/logs/api.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/home/game/logs/backup/api.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <charset>${LOG_CHARSET}</charset>
@@ -35,9 +39,11 @@
     </appender>
 
     <appender name="INTERFACE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/game/logs/interface.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <fileNamePattern>/home/game/logs/backup/interface.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <charset>${LOG_CHARSET}</charset>
