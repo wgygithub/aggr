@@ -28,4 +28,7 @@
         path,component,parent,permission,sort,
         menu_type,el_svg_icon,route_name,query,redirect
     </sql>
+
+
+
 </mapper>
