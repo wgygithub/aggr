@@ -3,7 +3,7 @@ package org.example.util;
 import cn.hutool.core.util.StrUtil;
 import org.slf4j.MDC;
 
-public class TraceUtil {
+public final class TraceUtil {
 
     private static final String LOG_TRACE_ID = "traceId";
 

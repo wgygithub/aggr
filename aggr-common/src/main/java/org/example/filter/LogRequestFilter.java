@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.StringUtils;
 import org.example.enums.ResultType;
 import org.example.exceptions.JacksonJsonException;
 import org.example.util.IpUtils;
@@ -53,8 +54,7 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        if (request.getMethod().equals(HttpMethod.HEAD.toString())
-                || request.getMethod().equals(HttpMethod.OPTIONS.toString())) {
+        if (request.getMethod().equals(HttpMethod.HEAD.toString()) || request.getMethod().equals(HttpMethod.OPTIONS.toString())) {
             return;
         }
         if (IGNORE_PATH.contains(request.getRequestURI())) {
@@ -71,9 +71,13 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
             response = new ContentCachingResponseWrapper(response);
         }
         String traceId = request.getHeader("traceId");
+        String msg = "";
         try {
             traceId = TraceUtil.getTraceId(traceId);
             filterChain.doFilter(request, response);
+        } catch (Throwable e) {
+            log.error("Exception: {}", e.getMessage(), e);
+            msg = e.getMessage();
         } finally {
             String requestBody = null;
             ContentCachingRequestWrapper requestWrapper = WebUtils.getNativeRequest(request, ContentCachingRequestWrapper.class);
@@ -98,11 +102,13 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
                 headers.put(name, request.getHeader(name));
             }
             long cost = DateUtil.between(start, new Date(), DateUnit.MS);
-            Integer code = extractValueFromResponse(responseBody, "code", ResultType.FAIL::getCode);
-            String msg = "";
+            Integer code = StringUtils.isNotBlank(responseBody) ? extractValueFromResponse(responseBody, "code", ResultType.FAIL::getCode) : ResultType.FAIL.getCode();
+
             String successFlag = code == ResultType.SUCCESS.getCode() ? "T" : "F";
             if (successFlag.equalsIgnoreCase("F")) {
-                msg = extractValueFromResponse(responseBody, "message", ResultType.FAIL::getMsg);
+                // 提前定义默认消息逻辑
+                String defaultMsg = StringUtils.isNotBlank(msg) ? msg : ResultType.FAIL.getMsg();
+                msg = StringUtils.isNotBlank(responseBody) ? extractValueFromResponse(responseBody, "message", () -> defaultMsg) : defaultMsg;
             }
             String format = """
                     Timestamp      : {}
@@ -118,10 +124,7 @@ public class LogRequestFilter extends OncePerRequestFilter implements Ordered {
                     Response       : {}
                     Time-Consuming : {} ms
                     ======================================================================================""";
-            interfaceLog.info(format, DateUtil.formatDateTime(start), successFlag, code, msg, traceId,
-                    request.getRequestURL().toString(), headers, request.getMethod(),
-                    IpUtils.getIpAddr(request), JacksonUtil.toJson(new Param(request.getQueryString(),
-                            requestBody)), responseBody, cost);
+            interfaceLog.info(format, DateUtil.formatDateTime(start), successFlag, code, msg, traceId, request.getRequestURL().toString(), headers, request.getMethod(), IpUtils.getIpAddr(request), JacksonUtil.toJson(new Param(request.getQueryString(), requestBody)), responseBody, cost);
             ContentCachingResponseWrapper resp = WebUtils.getNativeResponse(response, ContentCachingResponseWrapper.class);
             Objects.requireNonNull(resp).copyBodyToResponse();
         }

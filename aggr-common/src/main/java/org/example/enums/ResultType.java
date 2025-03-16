@@ -6,6 +6,8 @@ import lombok.Getter;
 public enum ResultType {
     SUCCESS(0, "成功"),
     FAIL(1, "失败"),
+    //业务错误
+    BUSINESS_ERROR(300, "BUSINESS_ERROR"),
     //参数错误
     PARAM_ERROR(400, "PARAM_ERROR"),
     //json错误

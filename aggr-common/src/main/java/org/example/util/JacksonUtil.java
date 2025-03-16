@@ -9,7 +9,7 @@ import org.example.exceptions.JacksonJsonException;
 import java.io.IOException;
 
 @Slf4j
-public class JacksonUtil {
+public final class JacksonUtil {
     private static final ObjectMapper objectMapper = new ObjectMapper();
 
     static {
@@ -78,7 +78,7 @@ public class JacksonUtil {
     public static JsonNode readTree(String responseBody) {
         try {
             return objectMapper.readTree(responseBody);
-        } catch (IOException e) {
+        } catch (Exception e) {
             log.error("Failed to convert JSON to object", e);
             throw new JacksonJsonException("Failed to convert JSON to object");
         }

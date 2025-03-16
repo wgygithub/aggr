@@ -5,16 +5,47 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="432b7c5c-feb1-4253-9d6d-b3cb560cf933" name="Changes" comment="调整数据库配置参数，增加MySQL plus 更新时间统一处理">
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/annotations/DbSource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/aspect/DbSourceAspect.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/constant/DataSourceConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/dynamicdb/DataSourceConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/dynamicdb/DataSourceContextHolder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/dynamicdb/DynamicDataSource.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/controller/admin/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/entity/AdminMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/entity/AdminRole.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/entity/AdminRoleMenu.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/entity/AdminUser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/mapper/AdminMenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/mapper/AdminRoleMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/mapper/AdminRoleMenuMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/mapper/AdminUserMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/param/BasePageParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/param/user/InUserParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/param/user/ResetPwdParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/param/user/UpUserParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/param/user/UserPageQueryParam.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/service/AdminRoleMenuService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/service/AdminUserService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/service/impl/AdminRoleMenuServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/service/impl/AdminUserServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/vo/user/AdminUserVo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/mapper/AdminMenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/mapper/AdminRoleMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/mapper/AdminRoleMenuMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/mapper/AdminUserMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-admin-server/src/test/java/org/example/service/admin/AdminUserServiceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/constant/AdminUserConstants.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/entity/BaseEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/handler/GlobalExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/PasswordUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-admin-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-admin-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/AdminServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/java/org/example/AdminServerApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/application-local.yml" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/application-local.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-admin-server/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/config/UnirestConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/config/UnirestConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-admin-server/src/test/java/org/example/TestMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-admin-server/src/test/java/org/example/TestMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/enums/ResultType.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/enums/ResultType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/AppException.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/AppException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/exceptions/handler/AppExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/filter/LogRequestFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/filter/LogRequestFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/IdUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/IdUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/IpUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/IpUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/JacksonUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/JacksonUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/TraceUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/aggr-common/src/main/java/org/example/util/TraceUtil.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +58,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
+        <option value="Kotlin Class" />
         <option value="Class" />
       </list>
     </option>
@@ -75,10 +108,13 @@
   "keyToString": {
     "Application.IdUtils.executor": "Debug",
     "Application.Jackson2ObjectMapper.executor": "Debug",
+    "Application.PasswordUtils.executor": "Run",
     "Application.TestMain.executor": "Debug",
+    "JUnit.AdminUserServiceTest.testUserQuery.executor": "Debug",
     "JUnit.TestMain.test (1).executor": "Debug",
     "JUnit.TestMain.test (2).executor": "Debug",
     "JUnit.TestMain.test.executor": "Debug",
+    "JUnit.TestMain.test2.executor": "Debug",
     "Maven.aggr [clean].executor": "Run",
     "Maven.aggr [install].executor": "Run",
     "Maven.aggr-common [clean].executor": "Run",
@@ -101,7 +137,7 @@
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/yipay",
+    "last_opened_file_path": "D:/code/aggr/aggr-admin-server/src/main/resources/mapper",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,7 +147,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.import",
+    "settings.editor.selected.configurable": "editor.reader.mode",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -122,6 +158,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\aggr\aggr-admin-server\src\main\resources\mapper" />
       <recent name="D:\code\aggr\aggr-common\src\main\java\org\example" />
       <recent name="D:\code\aggr\aggr-api-server\src\main\resources" />
       <recent name="D:\code\game\game-admin-server\src\main\resources" />
@@ -131,18 +168,19 @@
       <recent name="org.example" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.example.entity" />
       <recent name="org.example.config" />
       <recent name="org.example.util.resp" />
       <recent name="org.example.util" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestMain.test (2)">
-    <configuration name="Jackson2ObjectMapper" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.example.config.Jackson2ObjectMapper" />
+  <component name="RunManager" selected="Application.TestMain">
+    <configuration name="PasswordUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.example.util.PasswordUtils" />
       <module name="aggr-common" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.config.*" />
+          <option name="PATTERN" value="org.example.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -163,23 +201,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMain.test (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="aggr-api-server" />
+    <configuration name="AdminUserServiceTest.testUserQuery" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aggr-admin-server" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.example.*" />
+          <option name="PATTERN" value="org.example.service.admin.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="org.example" />
-      <option name="MAIN_CLASS_NAME" value="org.example.TestMain" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="PACKAGE_NAME" value="org.example.service.adminuser" />
+      <option name="MAIN_CLASS_NAME" value="org.example.service.admin.AdminUserServiceTest" />
+      <option name="METHOD_NAME" value="testUserQuery" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestMain.test (2)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestMain.test2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aggr-admin-server" />
       <extension name="coverage">
         <pattern>
@@ -189,15 +227,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example" />
       <option name="MAIN_CLASS_NAME" value="org.example.TestMain" />
-      <option name="METHOD_NAME" value="test" />
+      <option name="METHOD_NAME" value="test2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="AdminServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
-      <option name="ALTERNATIVE_JRE_PATH" value="21" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="aggr-admin-server" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.AdminServerApplication" />
       <extension name="coverage">
@@ -212,11 +248,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestMain.test (2)" />
         <item itemvalue="Application.TestMain" />
-        <item itemvalue="Application.Jackson2ObjectMapper" />
         <item itemvalue="Spring Boot.AdminServerApplication" />
-        <item itemvalue="JUnit.TestMain.test (1)" />
+        <item itemvalue="JUnit.AdminUserServiceTest.testUserQuery" />
+        <item itemvalue="Application.PasswordUtils" />
+        <item itemvalue="JUnit.TestMain.test2" />
       </list>
     </recent_temporary>
   </component>
@@ -254,7 +290,11 @@
       <workItem from="1741581353089" duration="5885000" />
       <workItem from="1741613700799" duration="7140000" />
       <workItem from="1741677126018" duration="12770000" />
-      <workItem from="1741939945027" duration="8690000" />
+      <workItem from="1741939945027" duration="9265000" />
+      <workItem from="1742009673471" duration="652000" />
+      <workItem from="1742012462531" duration="7500000" />
+      <workItem from="1742027272217" duration="8855000" />
+      <workItem from="1742100789284" duration="13381000" />
     </task>
     <task id="LOCAL-00001" summary="初始化">
       <option name="closed" value="true" />
@@ -280,7 +320,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741706073485</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="调整数据库配置参数，增加MySQL plus 更新时间统一处理">
+      <option name="closed" value="true" />
+      <created>1741956176825</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1741956176825</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,14 +365,14 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/aggr-common/src/main/java/org/example/filter/LogRequestFilter.java</url>
-          <line>101</line>
-          <option name="timeStamp" value="4" />
+          <url>file://$PROJECT_DIR$/aggr-admin-server/src/test/java/org/example/service/admin/AdminUserServiceTest.java</url>
+          <line>23</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/aggr-common/src/main/java/org/example/dynamicdb/DataSourceConfig.java</url>
-          <line>58</line>
-          <option name="timeStamp" value="8" />
+          <url>jar://$MAVEN_REPOSITORY$/com/baomidou/mybatis-plus-core/3.5.9/mybatis-plus-core-3.5.9.jar!/com/baomidou/mybatisplus/core/handlers/MetaObjectHandler.class</url>
+          <line>43</line>
+          <option name="timeStamp" value="14" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

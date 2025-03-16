@@ -2,7 +2,7 @@ package org.example.util;
 
 import cn.hutool.core.util.IdUtil;
 
-public class IdUtils {
+public final class IdUtils {
     /**
      * 获取指定长度的字符串，不带连字符，最多可以到32位
      *

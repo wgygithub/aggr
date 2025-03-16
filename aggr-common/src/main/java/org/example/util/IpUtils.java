@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 @Slf4j
 @UtilityClass
-public class IpUtils {
+public final class IpUtils {
 
   private static final String IP_ADDRESS_PATTERN =
       "^(25[0-5]|2[0-4][0-9]|[0-1]?[0-9]{1,2})\\." +

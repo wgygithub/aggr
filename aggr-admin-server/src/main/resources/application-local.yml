@@ -21,7 +21,8 @@ spring:
 
 logging:
   level:
-    ai.yipay: debug
+    # 开启SQL日志
+    org.example: DEBUG
     # 开启泄漏检测日志
 #    com.zaxxer.hikari: DEBUG
 
