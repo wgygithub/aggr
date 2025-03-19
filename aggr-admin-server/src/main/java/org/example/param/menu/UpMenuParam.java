@@ -1,20 +1,19 @@
 package org.example.param.menu;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
 @Data
-public class InMenuParam {
-    /**
-     * 菜单名称
-     */
-    @NotBlank
+public class UpMenuParam {
+
+    @NotNull
+    private Integer menuId;
+
     private String name;
 
     /**
      * 菜单标题
      */
-    @NotBlank
     private String title;
 
     /**
@@ -51,7 +50,6 @@ public class InMenuParam {
     /**
      * 菜单类型（M目录 C菜单 F按钮）
      */
-    @NotBlank
     private String menuType;
 
     /**
@@ -73,4 +71,5 @@ public class InMenuParam {
      * 重定向
      */
     private String redirect;
+
 }

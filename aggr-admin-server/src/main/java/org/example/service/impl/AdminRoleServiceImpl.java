@@ -5,10 +5,12 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.AdminRole;
+import org.example.entity.AdminRoleMenu;
 import org.example.entity.AdminUser;
 import org.example.exceptions.AppException;
 import org.example.exceptions.ParamException;
 import org.example.mapper.AdminRoleMapper;
+import org.example.mapper.AdminRoleMenuMapper;
 import org.example.mapper.AdminUserMapper;
 import org.example.param.role.InRoleParam;
 import org.example.param.role.UpRoleParam;
@@ -28,6 +30,9 @@ public class AdminRoleServiceImpl implements AdminRoleService {
 
     @Autowired
     private AdminUserMapper adminUserMapper;
+
+    @Autowired
+    private AdminRoleMenuMapper adminRoleMenuMapper;
 
     @Override
     public List<AdminRoleVo> roleQuery() {
@@ -91,7 +96,12 @@ public class AdminRoleServiceImpl implements AdminRoleService {
             log.info("{}角色下有用户，不允许删除", roleId);
             throw new AppException(StrUtil.format("{}角色下有用户，不允许删除", roleId));
         }
-        //todo 判断角色下面是否分配了菜单，如果分配了，不允许删除
+        // 判断角色下面是否分配了菜单，如果分配了，不允许删除
+        boolean menuExist = adminRoleMenuMapper.exists(Wrappers.<AdminRoleMenu>lambdaQuery().eq(AdminRoleMenu::getRoleId, roleId));
+        if (menuExist) {
+            log.info("{}角色下关联了权限，不允许删除", roleId);
+            throw new AppException(StrUtil.format("{}角色下关联了权限，请先解除关联", roleId));
+        }
     }
 
     private void checkUpParam(UpRoleParam param) {

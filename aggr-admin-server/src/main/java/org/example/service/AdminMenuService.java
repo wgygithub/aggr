@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.param.menu.InMenuParam;
+import org.example.param.menu.UpMenuParam;
 import org.example.vo.menu.AdminMenuVo;
 
 import java.util.List;
@@ -30,4 +31,12 @@ public interface AdminMenuService {
      * @return
      */
     int deleteMenu(Integer menuId);
+
+    /**
+     * 更新菜单信息
+     *
+     * @param param
+     * @return
+     */
+    int updateMenu(UpMenuParam param);
 }
