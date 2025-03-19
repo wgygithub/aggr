@@ -1,6 +1,7 @@
 package org.example.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Param;
 import org.example.entity.AdminMenu;
 
 /**
@@ -10,6 +11,14 @@ import org.example.entity.AdminMenu;
  * @Entity generator.domain.AdminMenu
  */
 public interface AdminMenuMapper extends BaseMapper<AdminMenu> {
+
+    /**
+     * 递归删除菜单
+     *
+     * @param menuId
+     * @return
+     */
+    int delRecurByMenu(@Param("menuId") Integer menuId);
 
 }
 

@@ -22,8 +22,6 @@ public class AdminUserServiceTest {
         userPageQueryParam.setUserName("zhangsan");
         IPage<AdminUserVo> adminUserVoIPage = adminUserService.userQuery(userPageQueryParam);
         System.out.println(adminUserVoIPage);
-
-
     }
 
 }

@@ -32,4 +32,8 @@ public class TestMain {
         adminUser.setUserName("zhangsan");
         amdinUser.insert(adminUser);
     }
+
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
+    }
 }

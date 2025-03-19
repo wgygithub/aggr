@@ -11,6 +11,7 @@ public interface AdminRoleMenuMapper extends BaseMapper<AdminRoleMenu> {
 
     List<AdminMenu> queryMenuByRoleId(@Param("roleId") Integer roleId);
 
+    int existsRecurByMenuId(@Param("menuId") Integer menuId);
 }
 
 

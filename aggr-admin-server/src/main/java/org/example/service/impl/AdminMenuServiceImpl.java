@@ -5,7 +5,6 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.AdminMenu;
-import org.example.entity.AdminRoleMenu;
 import org.example.exceptions.AppException;
 import org.example.exceptions.ParamException;
 import org.example.mapper.AdminMenuMapper;
@@ -91,31 +90,19 @@ public class AdminMenuServiceImpl implements AdminMenuService {
     @Override
     public int deleteMenu(Integer menuId) {
         checkMenuId(menuId);
-        //校验菜单是否被其他角色引用
-        boolean exists = adminRoleMenuMapper.exists(Wrappers.<AdminRoleMenu>lambdaQuery()
-                .eq(AdminRoleMenu::getMenuId, menuId));
-        if (exists) {
+        //校验菜单及其子菜单是否关联的角色，关联了角色不允许删除
+        int exitsCount = adminRoleMenuMapper.existsRecurByMenuId(menuId);
+        if (exitsCount > 0) {
             log.info("{}菜单被其他角色引用，不允许删除", menuId);
             throw new AppException(StrUtil.format("{}菜单被其他角色引用，不允许删除", menuId));
         }
-        //删除，需要将下级菜单一起删除
-        // 递归删除子菜单
-        deleteSubMenus(menuId);
-        // 删除当前菜单
-        int count = adminMenuMapper.deleteById(menuId);
+        // 删除菜单以及关联的子菜单
+        int count = adminMenuMapper.delRecurByMenu(menuId);
         if (count <= 0) {
             log.info("{}菜单删除失败", menuId);
             throw new AppException(StrUtil.format("菜单删除失败", menuId));
         }
         return count;
-    }
-
-    private void deleteSubMenus(Integer menuId) {
-        List<AdminMenu> subMenus = adminMenuMapper.selectList(Wrappers.<AdminMenu>lambdaQuery()
-                .eq(AdminMenu::getParent, menuId));
-        for (AdminMenu subMenu : subMenus) {
-            deleteMenu(subMenu.getId());
-        }
     }
 
 

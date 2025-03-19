@@ -28,7 +28,18 @@
         path,component,parent,permission,sort,
         menu_type,el_svg_icon,route_name,query,redirect
     </sql>
-
+    <delete id="delRecurByMenu">
+        WITH RECURSIVE cte AS (SELECT id
+                               FROM admin_menu
+                               WHERE id = #{menuId}
+                               UNION ALL
+                               SELECT am.id
+                               FROM admin_menu am
+                                        INNER JOIN cte ON am.parent = cte.id)
+        DELETE
+        FROM admin_menu
+        WHERE id IN (SELECT id FROM cte);
+    </delete>
 
 
 </mapper>

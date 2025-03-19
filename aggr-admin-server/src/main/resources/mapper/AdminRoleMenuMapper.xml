@@ -21,8 +21,22 @@
                am.route_name  AS routeName,
                am.query       AS query,
                am.redirect    AS redirect
-        from admin_role_menu arm
-                 left join admin_menu am on am.id = arm.menu_id
-        where arm.role_id = #{roleId}
+        FROM admin_role_menu arm
+                 LEFT JOIN admin_menu am on am.id = arm.menu_id
+        WHERE arm.role_id = #{roleId}
+    </select>
+
+    <select id="existsRecurByMenuId" resultType="java.lang.Integer">
+        select count(1)
+        FROM admin_role_menu
+        WHERE menu_id IN (WITH RECURSIVE cte AS (SELECT id
+                                                 FROM admin_menu
+                                                 WHERE id = #{menuId}
+                                                 UNION ALL
+                                                 SELECT am.id
+                                                 FROM admin_menu am
+                                                          INNER JOIN cte ON am.parent = cte.id)
+                          SELECT id
+                          FROM cte)
     </select>
 </mapper>
