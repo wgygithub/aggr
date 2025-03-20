@@ -4,7 +4,6 @@ import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import com.baomidou.mybatisplus.core.toolkit.support.SFunction;
 import lombok.extern.slf4j.Slf4j;
 import org.example.entity.AdminMenu;
 import org.example.exceptions.AppException;
@@ -14,13 +13,13 @@ import org.example.mapper.AdminRoleMenuMapper;
 import org.example.param.menu.InMenuParam;
 import org.example.param.menu.UpMenuParam;
 import org.example.service.AdminMenuService;
+import org.example.service.BaseService;
 import org.example.vo.menu.AdminMenuVo;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.lang.reflect.Field;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +45,7 @@ import java.util.Optional;
  */
 @Slf4j
 @Service
-public class AdminMenuServiceImpl implements AdminMenuService {
+public class AdminMenuServiceImpl extends BaseService implements AdminMenuService {
 
     @Autowired
     private AdminMenuMapper adminMenuMapper;
@@ -136,36 +135,4 @@ public class AdminMenuServiceImpl implements AdminMenuService {
             throw new ParamException(StrUtil.format("{} 菜单不存在", menuId));
         }
     }
-
-    private <T, E> void setFieldsIfNotNull(LambdaUpdateWrapper<T> wrapper,
-                                           E param,
-                                           Class<T> entityClass) {
-        Field[] fields = param.getClass().getDeclaredFields();
-        for (Field field : fields) {
-            field.setAccessible(true);
-            try {
-                Object value = field.get(param);
-                if (ObjectUtil.isNotNull(value)) {
-                    SFunction<T, ?> sFunction = getField(entityClass, field.getName());
-                    if (sFunction != null) {
-                        wrapper.set(sFunction, value);
-                    }
-                }
-            } catch (IllegalAccessException e) {
-                log.warn("无法设置字段: {}", field.getName());
-            }
-        }
-    }
-
-    private <T> SFunction<T, ?> getField(Class<T> entityClass, String fieldName) {
-        try {
-            Field field = entityClass.getDeclaredField(fieldName);
-            return (SFunction<T, ?>) field.get(entityClass);
-        } catch (Exception e) {
-            log.warn("字段 {} 不存在于类 {}", fieldName, entityClass.getName());
-            return null;
-        }
-    }
-
-
 }
