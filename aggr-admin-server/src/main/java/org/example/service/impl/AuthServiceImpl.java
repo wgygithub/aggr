@@ -76,6 +76,16 @@ public class AuthServiceImpl implements AuthService {
     return loginVo;
   }
 
+  @Override
+  public void logout(String username) {
+    AdminUser adminUser = adminUserMapper.selectByUsername(username);
+    if (ObjectUtil.isNull(adminUser)) {
+      log.warn("用户{}不存在", username);
+      throw new AppException(StrUtil.format("user {} not exist", username));
+    }
+    authTokenService.expiredToekn(adminUser);
+  }
+
   /**
    * 处理密码错误逻辑
    *

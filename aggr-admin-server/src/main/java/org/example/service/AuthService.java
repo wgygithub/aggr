@@ -11,4 +11,11 @@ public interface AuthService {
    * @return
    */
   LoginVo login(LoginParam loginParam);
+
+  /**
+   * 用户登出
+   *
+   * @param username
+   */
+  void logout(String username);
 }

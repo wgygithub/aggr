@@ -1,5 +1,6 @@
 package org.example.service;
 
+import org.example.entity.AdminUser;
 import org.example.entity.AuthToken;
 
 /**
@@ -21,4 +22,11 @@ public interface AuthTokenService {
    * @return
    */
   AuthToken saveToken(Integer userId);
+
+  /**
+   * 将用户的token置为失效
+   *
+   * @param adminUser
+   */
+  void expiredToekn(AdminUser adminUser);
 }

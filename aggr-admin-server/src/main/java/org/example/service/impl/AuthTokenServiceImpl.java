@@ -1,9 +1,12 @@
 package org.example.service.impl;
 
 import cn.hutool.core.util.IdUtil;
+import com.baomidou.mybatisplus.core.toolkit.Wrappers;
+import org.example.entity.AdminUser;
 import org.example.entity.AuthToken;
 import org.example.mapper.AuthTokenMapper;
 import org.example.service.AuthTokenService;
+import org.example.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -39,6 +42,15 @@ public class AuthTokenServiceImpl implements AuthTokenService {
     authToken.setExpireTime(epochSecond);
     authTokenMapper.insert(authToken);
     return authToken;
+  }
+
+  @Override
+  public void expiredToekn(AdminUser adminUser) {
+    authTokenMapper.update(Wrappers.<AuthToken>lambdaUpdate()
+      .eq(AuthToken::getUserId, adminUser.getId())
+      .set(AuthToken::getExpireTime, DateUtil.current())
+    );
+
   }
 }
 

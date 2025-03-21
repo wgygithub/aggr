@@ -3,6 +3,8 @@ package org.example.controller.auth;
 
 import lombok.extern.slf4j.Slf4j;
 import org.example.annotations.RateLimit;
+import org.example.context.ContextUtil;
+import org.example.context.vo.UserInfoVo;
 import org.example.param.auth.LoginParam;
 import org.example.resp.Result;
 import org.example.service.AuthCaptchaService;
@@ -42,5 +44,11 @@ public class AuthController {
     return Result.OK(authService.login(loginParam));
   }
 
-
+  @PostMapping("/logout")
+  public Result<Void> logout() {
+    UserInfoVo userinfo = ContextUtil.userInfo();
+    log.info("user:{} logout", userinfo.getUserName());
+    authService.logout(userinfo.getUserName());
+    return Result.OK();
+  }
 }
