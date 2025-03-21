@@ -51,3 +51,7 @@ r2:
   region: APAC
   endpoint: https://4fddfe2620410d43afcf3bbe5e310c77.r2.cloudflarestorage.com
   downloadUrl: https://r2.yipay.ai
+
+# 系统配置
+system:
+  captcha-enable: true

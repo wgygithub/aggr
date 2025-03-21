@@ -3,9 +3,9 @@ package org.example.service.impl;
 import cn.hutool.cache.Cache;
 import cn.hutool.cache.impl.TimedCache;
 import cn.hutool.core.util.IdUtil;
+import cn.hutool.core.util.StrUtil;
 import com.google.code.kaptcha.Producer;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 import org.example.exceptions.AppException;
 import org.example.service.AuthCaptchaService;
 import org.example.vo.auth.CaptchaImageVo;
@@ -102,6 +102,6 @@ public class AuthCaptchaServiceImpl implements AuthCaptchaService {
 
   @Override
   public boolean captchaCheck(String uuid, String code) {
-    return StringUtils.isNotBlank(uuid) && StringUtils.isNotBlank(code) && code.equalsIgnoreCase(captchaCache.get(uuid));
+    return StrUtil.isNotBlank(uuid) && StrUtil.isNotBlank(code) && code.equalsIgnoreCase(captchaCache.get(uuid));
   }
 }
