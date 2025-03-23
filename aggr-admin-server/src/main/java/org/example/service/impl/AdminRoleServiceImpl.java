@@ -1,5 +1,6 @@
 package org.example.service.impl;
 
+import cn.hutool.core.collection.CollectionUtil;
 import cn.hutool.core.util.ObjectUtil;
 import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
@@ -13,11 +14,13 @@ import org.example.mapper.AdminRoleMapper;
 import org.example.mapper.AdminRoleMenuMapper;
 import org.example.mapper.AdminUserMapper;
 import org.example.param.role.InRoleParam;
+import org.example.param.role.RoleLinkMenuParam;
 import org.example.param.role.UpRoleParam;
 import org.example.service.AdminRoleService;
 import org.example.vo.role.AdminRoleVo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -81,6 +84,31 @@ public class AdminRoleServiceImpl implements AdminRoleService {
             throw new AppException(StrUtil.format("{}角色删除失败", roleId));
         }
         return count;
+    }
+
+    @Override
+    @Transactional
+    public void roleLinkeMenu(RoleLinkMenuParam param) {
+        Optional.ofNullable(adminRoleMapper.selectById(param.getRoleId()))
+          .orElseThrow(()->new ParamException(StrUtil.format("角色{}不存在", param.getRoleId())));
+
+        boolean exists = adminRoleMenuMapper.exists(Wrappers.<AdminRoleMenu>lambdaQuery().eq(AdminRoleMenu::getRoleId, param.getRoleId()));
+        if (exists){
+            int delete = adminRoleMenuMapper.delete(Wrappers.<AdminRoleMenu>lambdaUpdate().eq(AdminRoleMenu::getRoleId, param.getRoleId()));
+            log.info("{}角色删除成功,删除{}条记录", param.getRoleId(),delete);
+        }
+        // 校验菜单ID列表是否为空
+        List<Integer> menuIds = param.getMenuIds();
+        if (CollectionUtil.isEmpty(menuIds)) {
+            log.info("{}角色下没有菜单信息，只是做了取消菜单功能", param.getRoleId());
+            return;
+        }
+        param.getMenuIds().forEach(menuId -> {
+            AdminRoleMenu adminRoleMenu = new AdminRoleMenu();
+            adminRoleMenu.setRoleId(param.getRoleId());
+            adminRoleMenu.setMenuId(menuId);
+            adminRoleMenuMapper.insert(adminRoleMenu);
+        });
     }
 
     /**
