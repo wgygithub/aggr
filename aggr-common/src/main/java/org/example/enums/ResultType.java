@@ -18,6 +18,10 @@ public enum ResultType {
     RATELIMIT_ERROR(403, "RATELIMIT_ERROR"),
     //远程调用失败
     REMOTECALL_ERROR(408, "REMOTECALL_ERROR"),
+    //header参数错误
+    HEADERPARAM_ERROR(204,"header param miss"),
+    //token过期
+    TOKENEXPIRED_ERROR(405,"token expired"),
     //认证失败
     AUTH_FAIL(405, "AUTH_FAIL");
 

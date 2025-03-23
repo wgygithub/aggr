@@ -7,4 +7,6 @@ public class UserInfoVo {
   private Integer userId;
 
   private String userName;
+
+  private Boolean active;
 }

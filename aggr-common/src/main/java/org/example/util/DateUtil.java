@@ -56,4 +56,7 @@ public final class DateUtil {
     return localDateTime.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
   }
 
+  public static boolean isBefore(Long expireTime, LocalDateTime now) {
+    return expireTime < localDateTimeToTimestamp(now);
+  }
 }
