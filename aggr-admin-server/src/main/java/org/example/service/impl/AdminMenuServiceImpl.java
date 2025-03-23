@@ -5,7 +5,7 @@ import cn.hutool.core.util.StrUtil;
 import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
-import org.example.entity.AdminMenu;
+import org.example.domain.AdminMenu;
 import org.example.exceptions.AppException;
 import org.example.exceptions.ParamException;
 import org.example.mapper.AdminMenuMapper;

@@ -1,7 +1,8 @@
 package org.example.service;
 
-import org.example.entity.AdminUser;
-import org.example.entity.AuthToken;
+
+import org.example.domain.AdminUser;
+import org.example.domain.AuthToken;
 
 /**
  * @author admin

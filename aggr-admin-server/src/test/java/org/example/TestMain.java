@@ -1,6 +1,7 @@
 package org.example;
 
-import org.example.entity.AdminUser;
+
+import org.example.domain.AdminUser;
 import org.example.mapper.AdminUserMapper;
 import org.example.util.PasswordUtils;
 import org.junit.jupiter.api.Test;

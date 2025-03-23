@@ -6,7 +6,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import org.apache.ibatis.annotations.Param;
 import org.example.annotations.DbSource;
 import org.example.constant.DataSourceConstants;
-import org.example.entity.AdminUser;
+import org.example.domain.AdminUser;
 import org.example.param.user.UserPageQueryParam;
 import org.example.vo.user.AdminUserVo;
 

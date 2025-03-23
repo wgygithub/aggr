@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import lombok.extern.slf4j.Slf4j;
 import org.example.constant.AdminUserConstants;
 import org.example.context.vo.UserInfoVo;
-import org.example.entity.AdminUser;
+import org.example.domain.AdminUser;
 import org.example.exceptions.AppException;
 import org.example.exceptions.ParamException;
 import org.example.mapper.AdminRoleMapper;

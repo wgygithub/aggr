@@ -9,7 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.example.context.ContextUtil;
 import org.example.context.vo.UserInfoVo;
-import org.example.entity.AuthToken;
+import org.example.domain.AuthToken;
 import org.example.exceptions.AuthException;
 import org.example.exceptions.TokenExpiredException;
 import org.example.mapper.AuthTokenMapper;

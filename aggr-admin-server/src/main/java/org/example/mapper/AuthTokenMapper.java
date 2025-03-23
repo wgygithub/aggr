@@ -3,7 +3,7 @@ package org.example.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.example.annotations.DbSource;
 import org.example.constant.DataSourceConstants;
-import org.example.entity.AuthToken;
+import org.example.domain.AuthToken;
 
 /**
  * @author admin

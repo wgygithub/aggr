@@ -2,8 +2,8 @@ package org.example.service.impl;
 
 import cn.hutool.core.util.IdUtil;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
-import org.example.entity.AdminUser;
-import org.example.entity.AuthToken;
+import org.example.domain.AdminUser;
+import org.example.domain.AuthToken;
 import org.example.mapper.AuthTokenMapper;
 import org.example.service.AuthTokenService;
 import org.example.util.DateUtil;
