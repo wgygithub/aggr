@@ -11,7 +11,6 @@ import org.example.context.ContextUtil;
 import org.example.context.vo.UserInfoVo;
 import org.example.entity.AuthToken;
 import org.example.exceptions.AuthException;
-import org.example.exceptions.HeaderParamException;
 import org.example.exceptions.TokenExpiredException;
 import org.example.mapper.AuthTokenMapper;
 import org.example.service.AdminUserService;
@@ -29,7 +28,9 @@ import java.util.Objects;
 public class AuthInterceptor implements HandlerInterceptor {
 
   private static final List<String> WHITE_URI = List.of(
-    "/healthy-check"
+    "/healthy-check",
+    "/auth/login",
+    "/auth/captcha"
   );
   private static final Cache<String, AuthToken> cache = new TimedCache<>(1000 * 10);
 
@@ -40,6 +41,10 @@ public class AuthInterceptor implements HandlerInterceptor {
 
   @Override
   public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
+    if (checkWhiteUri(request.getRequestURI())) {
+      log.info(StrUtil.format("{} is white uri", request.getRequestURI()));
+      return true;
+    }
     checkHeaderParam(request);
     String authorization = request.getHeader("Authorization");
     if (StringUtils.isBlank(authorization)) {
@@ -74,13 +79,16 @@ public class AuthInterceptor implements HandlerInterceptor {
 
     ContextUtil.setUserInfo(userInfoVo);
 
-    return WHITE_URI.contains(request.getRequestURI());
+    return true;
+  }
+
+  private boolean checkWhiteUri(String uri) {
+    return WHITE_URI.contains(uri);
   }
 
   private void checkHeaderParam(HttpServletRequest request) {
-    String currencyStr = request.getHeader("currency");
-    if (StringUtils.isEmpty(currencyStr)) {
-      throw new HeaderParamException("header missing currency");
-    }
+//    if (StringUtils.isEmpty()) {
+//      throw new HeaderParamException("header missing currency");
+//    }
   }
 }

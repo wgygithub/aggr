@@ -11,5 +11,5 @@ public class SystemConfig {
 
   private boolean captchaEnable;
 
-
+  private boolean corsEnable;
 }

@@ -54,4 +54,5 @@ r2:
 
 # 系统配置
 system:
-  captcha-enable: true
+  captchaEnable: true
+  corsEnable: true
