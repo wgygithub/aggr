@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  * 验证相关接口
+ *
+ * @author admin
  */
 @RestController
 @RequestMapping("/auth")

@@ -5,16 +5,19 @@ import lombok.Data;
 
 import java.util.Optional;
 
+/**
+ * @author admin
+ */
 @Data
 public class BasePageParam {
-    private Integer pageNum;
-    private Integer pageSize;
+  private Integer pageNum;
+  private Integer pageSize;
 
-    public <T> Page<T> toPage() {
-        return new Page<>(
-                Optional.ofNullable(pageNum).orElse(1),
-                Optional.ofNullable(pageSize).orElse(20),
-                true
-        );
-    }
+  public <T> Page<T> toPage() {
+    return new Page<>(
+      Optional.ofNullable(pageNum).orElse(1),
+      Optional.ofNullable(pageSize).orElse(20),
+      true
+    );
+  }
 }

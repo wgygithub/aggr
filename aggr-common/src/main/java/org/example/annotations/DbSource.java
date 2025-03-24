@@ -5,6 +5,9 @@ import org.example.constant.DataSourceConstants;
 import java.lang.annotation.*;
 
 
+/**
+ * @author admin
+ */
 @Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented

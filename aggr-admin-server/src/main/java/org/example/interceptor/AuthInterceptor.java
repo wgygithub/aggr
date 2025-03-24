@@ -23,6 +23,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * @author admin
+ */
 @Slf4j
 @Component
 public class AuthInterceptor implements HandlerInterceptor {

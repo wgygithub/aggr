@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.example.mapper.ChannelMapper">
+
+    <select id="selectList" resultType="org.example.vo.channel.ChannelVo">
+        select
+        c.id as channelId,
+        c.channel_name as channelName,
+        c.channel_label as channelLabel,
+        c.type as type,
+        c.active as active,
+        c.weigh as weigh,
+        c.payin_fee_rate as payinFeeRate,
+        c.payout_fee_rate as payoutFeeRate,
+        c.payout_single_transaction_fee as payoutSingleTransactionFee,
+        c.payin_min_amount as payinMinAmount,
+        c.payin_max_amount as payinMaxAmount,
+        c.payout_max_amount as payoutMinAmount,
+        cc.domain as domain,
+        cc.app_id as appId,
+        cc.public_key as publicKey,
+        cc.private_key as privateKey,
+        cc.active as configActive,
+        cc.other_config as otherConfig
+        from channel c
+        left join channel_config cc on cc.channel_label = c.channel_label
+        <where>
+            <if test="param.channelName != null and channelName != ''">
+                and channel_name like concat('%', #{channelName}, '%')
+            </if>
+            <if test="param.channelType != null and channelType != ''">
+                and type = #{channelType}
+            </if>
+        </where>
+    </select>
+</mapper>

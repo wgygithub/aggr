@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.example.mapper.AdminRoleMenuMapper">
 
-    <select id="queryMenuByRoleId" resultType="org.example.entity.AdminMenu">
+    <select id="queryMenuByRoleId" resultType="org.example.domain.AdminMenu">
         SELECT am.id          AS id,
                am.create_time AS createTime,
                am.update_time AS updateTime,
