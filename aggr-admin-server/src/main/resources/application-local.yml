@@ -1,18 +1,18 @@
 spring:
   datasource:
     master:
-      jdbc-url: jdbc:mysql://120.76.53.44:3306/aggr?useUnicode=true&characterEncoding=UTF-8
+      jdbc-url: jdbc:mysql://47.129.53.166:3306/aggr?useUnicode=true&characterEncoding=UTF-8
       username: aggr_test
-      password: 5i5gT2z1sACZiREpmno3
+      password: 3kCCnunP2dcGkc07i8aV
       driver-class-name: com.mysql.cj.jdbc.Driver
       pool-name: master
       hikari:
         maximum-pool-size: 10
         idle-timeout: 30000
     slave:
-      jdbc-url: jdbc:mysql://120.76.53.44:3306/aggr?useUnicode=true&characterEncoding=UTF-8
+      jdbc-url: jdbc:mysql://47.129.53.166:3306/aggr?useUnicode=true&characterEncoding=UTF-8
       username: aggr_test
-      password: 5i5gT2z1sACZiREpmno3
+      password: 3kCCnunP2dcGkc07i8aV
       driver-class-name: com.mysql.cj.jdbc.Driver
       pool-name: slave
       hikari:

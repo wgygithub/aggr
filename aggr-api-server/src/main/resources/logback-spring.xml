@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration scan="true" debug="true">
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
-    <property name="LOG_CHARSET" value="UTF-8" />
+    <property name="LOG_CHARSET" value="UTF-8"/>
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <charset>${LOG_CHARSET}</charset>
-            <pattern>%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%5p) [%8.8X{traceId}|%15.15thread|%40.40logger{39}|%5L] : %m%n%ex
+            <pattern>%yellow(%d{yyyy-MM-dd HH:mm:ss.SSS}) %highlight(%5p)
+                [%8.8X{traceId}|%15.15thread|%40.40logger{39}|%5L] : %m%n%ex
             </pattern>
         </encoder>
     </appender>
 
     <appender name="RUN" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/game/logs/front/run.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/game/logs/backup/run.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
-            <maxHistory>30</maxHistory>
+            <fileNamePattern>/home/game/logs/front/backup/run.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <maxHistory>7</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <charset>${LOG_CHARSET}</charset>
@@ -24,9 +27,11 @@
     </appender>
 
     <appender name="API" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/game/logs/front/api.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/game/logs/backup/api.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/home/game/logs/front/backup/api.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <charset>${LOG_CHARSET}</charset>
@@ -35,9 +40,11 @@
     </appender>
 
     <appender name="INTERFACE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/home/game/logs/front/interface.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/game/logs/backup/interface.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/home/game/logs/front/backup/interface.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
+            <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
         <encoder>
             <charset>${LOG_CHARSET}</charset>

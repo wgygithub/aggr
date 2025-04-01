@@ -12,9 +12,9 @@
     </appender>
 
     <appender name="RUN" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/home/game/logs/run.log</file>
+        <file>/home/game/logs/admin/run.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/game/logs/backup/run.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/home/game/logs/admin/backup/run.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>7</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
@@ -26,9 +26,9 @@
     </appender>
 
     <appender name="API" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/home/game/logs/api.log</file>
+        <file>/home/game/logs/admin/api.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/game/logs/backup/api.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/home/game/logs/admin/backup/api.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
@@ -39,9 +39,9 @@
     </appender>
 
     <appender name="INTERFACE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/home/game/logs/interface.log</file>
+        <file>/home/game/logs/admin/interface.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>/home/game/logs/backup/interface.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
+            <fileNamePattern>/home/game/logs/admin/backup/interface.%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>1GB</totalSizeCap>
         </rollingPolicy>
