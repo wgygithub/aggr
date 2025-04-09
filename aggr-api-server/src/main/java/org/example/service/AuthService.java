@@ -2,14 +2,18 @@ package org.example.service;
 
 import org.example.param.user.LoginParam;
 import org.example.param.user.RegisterParam;
+import org.example.vo.LoginVo;
 
+/**
+ * @author admin
+ */
 public interface AuthService {
   /**
    * 登录
    *
    * @param loginParam
    */
-  void login(LoginParam loginParam);
+  LoginVo login(LoginParam loginParam);
 
   /**
    * 注册

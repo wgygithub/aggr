@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * @author admin
+ */
 @Data
 public class RegisterParam implements Serializable {
   @NotBlank
@@ -15,4 +18,6 @@ public class RegisterParam implements Serializable {
   private String phone;
 
   private String email;
+  //邀请人
+  private String inviterCode;
 }
