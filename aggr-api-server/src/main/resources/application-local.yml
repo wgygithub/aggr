@@ -59,3 +59,18 @@ system:
 jwt:
   secret: thPMgxMpuB25t0AGdD9f5vbcHfhksaX7CJfXQ2uKaDrHUgnQL6tQhoeD4zJysyV057JoRZ493H9mZukAJjr8jt0o
   expire: 604800
+
+# 连接配置
+http:
+  client:
+    pool:
+      max-total: 200
+      max-per-route: 50
+    timeout:
+      connect: 3000
+      socket: 5000
+      request: 2000
+
+
+lock:
+  type: local

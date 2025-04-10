@@ -13,7 +13,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author admin
  */
 @Component
-@ConditionalOnProperty(name = "lock.type", havingValue = "LOCAL")
+@ConditionalOnProperty(name = "lock.type", havingValue = "local")
 public class LocalLockExecutor implements LockExecutor {
   private final ConcurrentMap<String, Lock> lockStore = new ConcurrentHashMap<>();
 

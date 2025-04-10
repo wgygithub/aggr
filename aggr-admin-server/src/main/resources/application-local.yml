@@ -56,3 +56,16 @@ r2:
 system:
   captchaEnable: true
   corsEnable: true
+
+# 连接配置
+http:
+  client:
+    max-total: 200
+    max-per-route: 50
+    connect: 3000
+    socket: 5000
+    request: 2000
+
+lock:
+  type: local
+
