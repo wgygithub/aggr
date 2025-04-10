@@ -1,0 +1,28 @@
+server {
+    listen 80;
+    server_name order-in.yipay.ai;
+    charset utf-8;
+
+    location / {
+        if ($request_method = 'OPTIONS') {
+            return 204;
+        }
+
+        proxy_pass http://127.0.0.1:10003/;
+    }
+}
+
+
+server {
+    listen 80;
+    server_name api-in.yipay.ai;
+    charset utf-8;
+
+    location / {
+        if ($request_method = 'OPTIONS') {
+            return 204;
+        }
+
+        proxy_pass http://127.0.0.1:10001/;
+    }
+}
